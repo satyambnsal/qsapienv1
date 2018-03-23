@@ -1,16 +1,14 @@
 const webpack = require('webpack');
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const port = process.env.PORT || '3000';
-const BUILD_DIR = path.resolve(__dirname, './build');
-const APP_DIR = path.resolve(__dirname, './src');
+const BUILD_DIR = path.resolve(__dirname, './server_build');
 
 module.exports = {
-    entry: APP_DIR + "/index.js",
+    entry:'./server.js',
     output: {
-        filename: "bundle.[hash].js"
+        filename: "bundle.[hash].js",
+        path:BUILD_DIR
     },
-
+    target:'node',
     module: {
         rules: [
             {
@@ -35,15 +33,5 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './public/index.html'),
-            filename: './index.html'
-        })
-    ],
-    devServer: {
-        host: 'localhost',
-        port: port,
-        historyApiFallback: true,
-        open: true
-    }
+    ]
 }

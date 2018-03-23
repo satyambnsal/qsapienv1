@@ -1,5 +1,5 @@
-import React from 'react';
 import 'babel-polyfill';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {Route} from 'react-router-dom';
 import { applyMiddleware, createStore} from 'redux';
